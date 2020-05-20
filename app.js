@@ -9,7 +9,7 @@ const app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', userRouters);
 app.use('/', cardsRouters);
-app.get('*', (req, res) => {
+app.all('*', (req, res) => {
   res.status(404).json({ message: 'Запрашиваемый ресурс не найден' });
 });
 app.listen(PORT, () => {
